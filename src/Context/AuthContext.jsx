@@ -4,6 +4,7 @@ const Auth = createContext()
 
 const AuthProvider = ({ children }) => {
   const [myItem, setMyItem] = useState([])
+
   console.log('global context ', myItem)
   console.log(myItem.length)
 

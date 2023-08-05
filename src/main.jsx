@@ -4,11 +4,14 @@ import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './Context/AuthContext.jsx'
+import { TokenProvider } from './Context/TokenContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <AuthProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <TokenProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </TokenProvider>
   </AuthProvider>,
 )

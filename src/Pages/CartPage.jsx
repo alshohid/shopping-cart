@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import NavigationLayout from '../masterLayout/NavigationLayout'
 import CartItem from '../Components/CartItem'
 import { cartList, removeCart } from '../APIRequst/APIRequest'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { ConvertStringToNumber } from '../LoaderUtil/ConvertStringToNumber'
 import { MyContext } from '../Context/AuthContext'
+import myImage from '../images/emptyCart.png'
 
 const CartPage = () => {
   const [items, setItems] = useState([])
@@ -86,9 +87,11 @@ const CartPage = () => {
                 <span className="text-xs ">BDT </span>
               </h2>
               <div className="mt-5 ">
-                <button className="btn btn-primary btn-sm border rounded-md">
-                  CheckOut
-                </button>
+                <Link to="/happy">
+                  <button className="btn btn-primary btn-sm border rounded-md">
+                    CheckOut
+                  </button>
+                </Link>
               </div>
             </div>
           ) : (
@@ -97,6 +100,15 @@ const CartPage = () => {
                 {' '}
                 Your Cart has Empty{' '}
               </h1>
+              <div>
+                <figure>
+                  <img
+                    src={myImage}
+                    alt=" image "
+                    className="w-64 h-auto rounded-md mx-auto"
+                  />
+                </figure>
+              </div>
 
               <NavLink to="/">
                 <button className="btn btn-primary rounded-md">

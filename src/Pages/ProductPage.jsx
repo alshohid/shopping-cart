@@ -4,11 +4,9 @@ import ProductList from '../Components/ProductList'
 import Loader from '../LoaderUtil/Loader'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { MyContext } from '../Context/AuthContext'
 
 const ProductPage = () => {
   const [products, setProducts] = useState(null)
-  const [error, setError] = useState('')
 
   useEffect(() => {
     ;(async () => {
@@ -22,13 +20,13 @@ const ProductPage = () => {
     })()
   }, [])
 
-  
-
   return (
-    <div>
-      {products === null ? <Loader /> : <ProductList products={products} />}
+    <div className=" container bg-slate-50  w-screen flex items-center justify-center mx-auto">
+      <div className="w- h-auto mx-auto ">
+        {products === null ? <Loader /> : <ProductList products={products} />}
+      </div>
+
       <ToastContainer />
-      <div></div>
     </div>
   )
 }
